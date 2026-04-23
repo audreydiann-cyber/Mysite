@@ -1,1 +1,223 @@
-<div class='tableauPlaceholder' id='viz1776916848071' style='position: relative'><noscript><a href='#'><img alt='Blossoming London ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bl&#47;BlossomingLondon&#47;BlossomingLondon&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BlossomingLondon&#47;BlossomingLondon' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bl&#47;BlossomingLondon&#47;BlossomingLondon&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1776916848071');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1566px';vizElement.style.height='1067px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wander — Audrey's Travel Page</title>
+  <link rel="stylesheet" href="travel.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">Wander</a>
+      <div class="nav-links">
+        <a href="#destinations">Destinations</a>
+        <a href="#why">Why Travel</a>
+        <a href="#tips">Tips</a>
+        <a href="#watch">Watch</a>
+        <a href="#data">Data</a>
+        <a href="index.html">← Professional Site</a>
+        <a href="snake.html">🎮 Play Snake</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-sub">A love letter to exploration</p>
+      <h1 class="hero-title">The World<br><em>Is Yours</em></h1>
+      <p class="hero-desc">Travel isn't just tourism — it's the art of becoming a more curious, more empathetic, more alive version of yourself.</p>
+      <a href="#destinations" class="cta-btn">Start Exploring ↓</a>
+    </div>
+  </header>
+
+  <!-- DESTINATIONS -->
+  <section class="section" id="destinations">
+    <div class="container">
+      <div class="section-label">Places I Dream About</div>
+      <h2 class="section-title">Dream Destinations</h2>
+
+      <div class="card-grid">
+
+        <div class="dest-card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80');"></div>
+          <div class="card-body">
+            <span class="card-region">Europe</span>
+            <h3>Paris, France</h3>
+            <p>The city of light, love, and impeccable pastries. There is nowhere on earth quite like walking along the Seine at golden hour.</p>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80');"></div>
+          <div class="card-body">
+            <span class="card-region">Asia</span>
+            <h3>Kyoto, Japan</h3>
+            <p>Ancient temples, bamboo forests, and a stillness that modern life rarely affords. Japan changes how you see the world.</p>
+          </div>
+        </div>
+
+        <div class="dest-card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1612294037637-ec328d0e075e?w=600&q=80');"></div>
+          <div class="card-body">
+            <span class="card-region">South America</span>
+            <h3>Patagonia, Argentina</h3>
+            <p>The end of the world. Glaciers, peaks, and a raw wilderness that makes you feel magnificently small.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY TRAVEL — with nested list (requirement) -->
+  <section class="section alt-bg" id="why">
+    <div class="container">
+      <div class="section-label">The Case for Wandering</div>
+      <h2 class="section-title">Why Travel Matters</h2>
+
+      <div class="two-col">
+        <div>
+          <p class="body-text">Travel is one of the most powerful forms of education available to us. It collapses our assumptions, broadens our empathy, and reminds us that the world is richer and stranger than any map suggests.</p>
+          <p class="body-text">Below are some of the most compelling reasons to pack your bags — organized by whether you're traveling for growth, or just for the pure joy of it.</p>
+        </div>
+        <div>
+          <!-- ORDERED LIST with UNORDERED lists nested inside — required element -->
+          <ol class="main-list">
+            <li>
+              <strong>Travel for Personal Growth</strong>
+              <ul class="sub-list">
+                <li>Build genuine confidence navigating the unknown</li>
+                <li>Develop patience and adaptability in unfamiliar situations</li>
+                <li>Gain perspective on your own cultural assumptions</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Travel for Connection</strong>
+              <ul class="sub-list">
+                <li>Meet people whose worldview challenges and enriches yours</li>
+                <li>Share meals, stories, and languages across borders</li>
+                <li>Build friendships that transcend geography</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Travel for Pure Joy</strong>
+              <ul class="sub-list">
+                <li>Eat food that doesn't exist anywhere else on earth</li>
+                <li>Stand in front of things that genuinely take your breath away</li>
+                <li>Get blissfully, productively lost</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS — anchor target -->
+  <section class="section" id="tips">
+    <div class="container">
+      <div class="section-label">Practical Wisdom</div>
+      <h2 class="section-title">Travel Tips I Swear By</h2>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-num">01</div>
+          <h4>Pack half of what you think you need</h4>
+          <p>You will always overpack. Lay everything out, then put half back. Your future self — hauling bags through cobblestone streets — will thank you.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">02</div>
+          <h4>Learn five phrases in the local language</h4>
+          <p>Hello, thank you, please, excuse me, and "do you speak English?" — these five phrases will open doors everywhere.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">03</div>
+          <h4>Always have a backup of your documents</h4>
+          <p>Photos of your passport, visa, insurance, and emergency contacts stored in cloud storage. Takes 10 minutes. Saves potential catastrophe.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">04</div>
+          <h4>Eat where the locals eat</h4>
+          <p>If there's a laminated menu with photos directly outside a tourist attraction, keep walking. Follow the lunch crowds at noon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUTUBE VIDEO — required element -->
+  <section class="section alt-bg" id="watch">
+    <div class="container">
+      <div class="section-label">Inspiration</div>
+      <h2 class="section-title">Watch This Before Your Next Trip</h2>
+      <p class="body-text center-text">This stunning short documentary captures what it truly means to travel with intention — not just to see places, but to feel them.</p>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/SBlFhUNfMQo"
+          title="Travel inspiration video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLEAU — required element -->
+  <section class="section" id="data">
+    <div class="container">
+      <div class="section-label">By the Numbers</div>
+      <h2 class="section-title">World Tourism Data</h2>
+      <p class="body-text center-text">Explore live data on global travel trends — where people are going, and how tourism has evolved over time.</p>
+      <div class="tableau-wrap">
+        <div class='tableauPlaceholder' id='viz1776916848071' style='position: relative; width: 100%; overflow: hidden;'>
+          <noscript>
+            <a href='#'>
+              <img alt='Blossoming London' src='https://public.tableau.com/static/images/Bl/BlossomingLondon/BlossomingLondon/1_rss.png' style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='BlossomingLondon/BlossomingLondon' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https://public.tableau.com/static/images/Bl/BlossomingLondon/BlossomingLondon/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1776916848071');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width='100%';
+          vizElement.style.height='600px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANCHOR LINK demo — back to top -->
+  <div class="back-to-top-wrap">
+    <a href="#top" class="back-to-top">↑ Back to Top</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>Made by Audrey Bledsoe · <a href="index.html">Professional Site</a> · <a href="snake.html">Play Snake</a></p>
+  </footer>
+
+</body>
+</html>
