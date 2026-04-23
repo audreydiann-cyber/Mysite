@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audrey Bledsoe</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #E63946;
+      --accent-dark: #c1121f;
+      --dark: #1a1a2e;
+      --mid: #16213e;
+      --light-bg: #f8f9fa;
+    }
+    body { font-family: 'DM Sans', sans-serif; color: #222; }
+    h1, h2, h3, .display-font { font-family: 'Playfair Display', serif; }
+
+    /* NAVBAR */
+    .navbar { background: var(--dark) !important; padding: 1rem 0; }
+    .navbar-brand { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #fff !important; letter-spacing: 1px; }
+    .nav-link { color: rgba(255,255,255,0.8) !important; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-link:hover { color: var(--accent) !important; }
+
+    /* HERO */
+    .hero {
+      background: var(--dark);
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.08;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.05;
+    }
+    .hero-label {
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      color: #fff;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.15rem;
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .btn-accent {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.85rem 2.2rem;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 0;
+      transition: background 0.2s, transform 0.15s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-accent:hover { background: var(--accent-dark); color: #fff; transform: translateY(-2px); }
+    .btn-outline-light-custom {
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      padding: 0.85rem 2.2rem;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 0;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-outline-light-custom:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.08); }
+    .hero-img-wrap {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--accent);
+      color: #fff;
+      padding: 1.2rem 1.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .hero-badge .num { font-size: 2rem; font-weight: 900; display: block; line-height: 1; }
+    .hero-badge .lbl { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; }
+
+    /* SECTION STYLES */
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+    }
+    .divider-accent {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    /* ABOUT */
+    .about-section { padding: 100px 0; background: #fff; }
+    .about-stat { border-left: 3px solid var(--accent); padding-left: 1.25rem; }
+    .about-stat .num { font-size: 2.5rem; font-weight: 900; font-family: 'Playfair Display', serif; color: var(--dark); line-height: 1; }
+    .about-stat .lbl { font-size: 0.8rem; color: #888; letter-spacing: 2px; text-transform: uppercase; }
+
+    /* EXPERIENCE */
+    .exp-section { padding: 100px 0; background: var(--dark); color: #fff; }
+    .exp-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-top: 3px solid var(--accent);
+      padding: 2rem;
+      height: 100%;
+      transition: background 0.2s;
+    }
+    .exp-card:hover { background: rgba(255,255,255,0.07); }
+    .exp-date { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .exp-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .exp-org { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+    .exp-card ul { padding-left: 1.1rem; }
+    .exp-card li { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-bottom: 0.4rem; line-height: 1.6; }
+
+    /* SKILLS */
+    .skills-section { padding: 100px 0; background: var(--light-bg); }
+    .skill-pill {
+      display: inline-block;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 0;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.85rem;
+      margin: 0.3rem;
+      transition: all 0.2s;
+      color: #333;
+    }
+    .skill-pill:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .skill-pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.5);
+      padding: 2.5rem 0;
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      transition: all 0.2s;
+      text-decoration: none;
+      margin: 0 0.25rem;
+    }
+    .social-icon:hover { border-color: var(--accent); color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Audrey Bledsoe</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto gap-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="resume.html">Résumé</a></li>
+        <li class="nav-item"><a class="nav-link" href="travel.html">Travel</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container position-relative" style="z-index:1;">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <p class="hero-label">Pre-Business · Finance · BYU</p>
+        <h1>Audrey<br><span>Bledsoe.</span></h1>
+        <p>Future finance professional with a passion for investment banking, legal insight, and making meaningful connections across industries.</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="resume.html" class="btn-accent">View Résumé</a>
+          <a href="travel.html" class="btn-outline-light-custom">My Travel Page</a>
+        </div>
+      </div>
+      <div class="col-lg-5 offset-lg-1 mt-5 mt-lg-0 hero-img-wrap">
+        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 3rem 2.5rem; position: relative;">
+          <p class="section-label mb-3">Quick Facts</p>
+          <div class="d-flex flex-column gap-4">
+            <div class="d-flex align-items-center gap-3">
+              <div style="width:40px;height:40px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="bi bi-mortarboard text-white"></i>
+              </div>
+              <div>
+                <div style="color:#fff;font-size:0.95rem;font-weight:500;">BYU — Pre-Business</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:0.8rem;">3.92 GPA · Full Tuition Scholarship</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div style="width:40px;height:40px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="bi bi-briefcase text-white"></i>
+              </div>
+              <div>
+                <div style="color:#fff;font-size:0.95rem;font-weight:500;">Finance &amp; Law</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:0.8rem;">Toyota · McCathern Law · Timpanogos Legal</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div style="width:40px;height:40px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="bi bi-award text-white"></i>
+              </div>
+              <div>
+                <div style="color:#fff;font-size:0.95rem;font-weight:500;">Principal Dancer &amp; Leader</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:0.8rem;">7 years ballet · Student Council Chair</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div style="width:40px;height:40px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <i class="bi bi-globe text-white"></i>
+              </div>
+              <div>
+                <div style="color:#fff;font-size:0.95rem;font-weight:500;">NYC Net-Trek Upcoming</div>
+                <div style="color:rgba(255,255,255,0.45);font-size:0.8rem;">Investment Banking exploration</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 mb-5 mb-lg-0">
+        <p class="section-label">About Me</p>
+        <h2 class="section-title">Driven by curiosity,<br>shaped by discipline.</h2>
+        <div class="divider-accent"></div>
+        <p class="text-muted mb-4" style="line-height:1.9;">I'm a Pre-Business student at Brigham Young University with a deep interest in investment banking, finance, and the law. My background spans Fortune 500 corporate environments, nonprofit legal aid, and competitive ballet — experiences that have made me equally comfortable in boardrooms and on stage.</p>
+        <p class="text-muted" style="line-height:1.9;">I believe the best professionals are those who bring both analytical rigor and genuine human connection to everything they do.</p>
+      </div>
+      <div class="col-lg-6 offset-lg-1">
+        <div class="row g-4">
+          <div class="col-6">
+            <div class="about-stat">
+              <div class="num">3.92</div>
+              <div class="lbl">GPA at BYU</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="about-stat">
+              <div class="num">7</div>
+              <div class="lbl">Years of Ballet</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="about-stat">
+              <div class="num">5+</div>
+              <div class="lbl">Organizations</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="about-stat">
+              <div class="num">$5K+</div>
+              <div class="lbl">Raised per year</div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5">
+          <p class="section-label">Organizations</p>
+          <div>
+            <span class="skill-pill active">Finance Society</span>
+            <span class="skill-pill">Women in Finance</span>
+            <span class="skill-pill">Private Banking &amp; WM Assoc.</span>
+            <span class="skill-pill">BYU Real Estate Assoc.</span>
+            <span class="skill-pill">Investment Banking Assoc.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="exp-section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-6">
+        <p class="section-label">Experience</p>
+        <h2 class="section-title" style="color:#fff;">Where I've made<br>an impact.</h2>
+        <div class="divider-accent"></div>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="exp-card">
+          <p class="exp-date">Apr 2026 – May 2026</p>
+          <h3 class="exp-title">Intern</h3>
+          <p class="exp-org">Timpanogos Legal Center · Orem, UT</p>
+          <ul>
+            <li>Executed CLE program connecting Utah County legal professionals with license renewal events</li>
+            <li>Organized sponsorship agreements for the nonprofit's CLE professional event</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="exp-card">
+          <p class="exp-date">Aug 2023 – May 2025</p>
+          <h3 class="exp-title">Mentee</h3>
+          <p class="exp-org">McCathern Law / Denton Court House · Dallas, TX</p>
+          <ul>
+            <li>Shadowed practicing lawyers and sitting judges over two years</li>
+            <li>Mentored by the Dallas Cowboys' Family Attorney and 367th District Court Judge</li>
+            <li>Developed confidentiality protocols and analytical thinking in high-stakes environments</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="exp-card">
+          <p class="exp-date">Nov 2023 – Dec 2024</p>
+          <h3 class="exp-title">Event Coordinator</h3>
+          <p class="exp-org">Toyota Headquarters · Frisco, TX</p>
+          <ul>
+            <li>Collaborated with Toyota executives to plan professional networking events</li>
+            <li>Brokered connections between high school students and senior DFW industry leaders</li>
+            <li>Developed expertise in corporate communication and large-scale event logistics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS & INTERESTS -->
+<section class="skills-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 mb-5 mb-lg-0">
+        <p class="section-label">Skills &amp; Interests</p>
+        <h2 class="section-title">What I bring<br>to the table.</h2>
+        <div class="divider-accent"></div>
+        <p class="text-muted" style="line-height:1.9;">A rare combination of financial acumen, legal exposure, corporate event experience, and artistic discipline — all before graduating college.</p>
+      </div>
+      <div class="col-lg-6 offset-lg-1">
+        <div class="mb-4">
+          <p class="section-label mb-2">Core Skills</p>
+          <div>
+            <span class="skill-pill">Corporate Communication</span>
+            <span class="skill-pill">Executive Relationship Management</span>
+            <span class="skill-pill">Event Logistics</span>
+            <span class="skill-pill">Legal Research</span>
+            <span class="skill-pill">Analytical Thinking</span>
+            <span class="skill-pill">Financial Analysis</span>
+            <span class="skill-pill">Fundraising</span>
+            <span class="skill-pill">Team Leadership</span>
+          </div>
+        </div>
+        <div class="mb-4">
+          <p class="section-label mb-2">Athletics &amp; Arts</p>
+          <div>
+            <span class="skill-pill">Classical Ballet (7 years)</span>
+            <span class="skill-pill">AURA Contemporary Dance</span>
+            <span class="skill-pill">Golf</span>
+            <span class="skill-pill">Hiking (Mt. Timpanogos)</span>
+          </div>
+        </div>
+        <div>
+          <p class="section-label mb-2">Awards</p>
+          <div>
+            <span class="skill-pill active">BYU Full Tuition Scholarship</span>
+            <span class="skill-pill active">Prosper Education Foundation Scholar</span>
+            <span class="skill-pill active">BYU Merit-Based Academic Scholarship</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <span style="font-family:'Playfair Display',serif;color:#fff;font-size:1.1rem;">Audrey Bledsoe</span>
+        <span class="ms-2">· Pre-Business, BYU</span>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <a href="https://www.linkedin.com/in/audrey-bledsoe-REPLACEME" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="mailto:abledso0@byu.edu" class="social-icon" aria-label="Email"><i class="bi bi-envelope"></i></a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,0.08);margin:1.5rem 0;">
+    <p class="text-center mb-0" style="font-size:0.8rem;">© 2025 Audrey Bledsoe · Built with Bootstrap 5</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

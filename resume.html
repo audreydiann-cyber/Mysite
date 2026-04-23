@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Résumé — Audrey Bledsoe</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #E63946;
+      --dark: #1a1a2e;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: #f5f4f0; color: #222; }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+    .navbar { background: var(--dark) !important; }
+    .navbar-brand { font-family: 'Playfair Display', serif; color: #fff !important; }
+    .nav-link { color: rgba(255,255,255,0.75) !important; font-size:0.85rem; letter-spacing:1px; text-transform:uppercase; }
+    .nav-link:hover { color: var(--accent) !important; }
+
+    .resume-wrap {
+      max-width: 900px;
+      margin: 3rem auto;
+      background: #fff;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.1);
+    }
+    .resume-header {
+      background: var(--dark);
+      color: #fff;
+      padding: 3rem 3.5rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .resume-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 200px; height: 200px;
+      background: var(--accent);
+      opacity: 0.07;
+      border-radius: 50%;
+      transform: translate(40%, 40%);
+    }
+    .resume-header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.25rem;
+      color: #fff;
+    }
+    .resume-header .tagline {
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .contact-row { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+    .contact-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+    .contact-item i { color: var(--accent); }
+
+    .resume-body { padding: 2.5rem 3.5rem; }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .section-head h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--dark);
+      margin: 0;
+      white-space: nowrap;
+    }
+    .section-head::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e0e0e0;
+    }
+    .section-head .dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .entry { margin-bottom: 1.75rem; }
+    .entry-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.25rem; margin-bottom: 0.15rem; }
+    .entry-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--dark); margin: 0; }
+    .entry-date { font-size: 0.8rem; color: #888; letter-spacing: 1px; white-space: nowrap; }
+    .entry-org { font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 0.6rem; }
+    .entry ul { padding-left: 1.1rem; margin: 0; }
+    .entry li { font-size: 0.9rem; color: #444; margin-bottom: 0.3rem; line-height: 1.6; }
+
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tag {
+      background: #f5f4f0;
+      border: 1px solid #e0ddd5;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.82rem;
+      color: #333;
+    }
+    .skill-tag.red { background: #fff0f0; border-color: #f5c5c5; color: var(--accent); }
+
+    .edu-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; align-items: flex-start; }
+    .edu-school { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--dark); }
+    .edu-degree { font-size: 0.9rem; color: #555; margin-bottom: 0.3rem; }
+    .edu-bullets { list-style: none; padding: 0; margin: 0; }
+    .edu-bullets li { font-size: 0.88rem; color: #555; padding-left: 1rem; position: relative; margin-bottom: 0.25rem; }
+    .edu-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+
+    .awards-list { list-style: none; padding: 0; margin: 0; }
+    .awards-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.9rem; color: #444; margin-bottom: 0.5rem; }
+    .awards-list li i { color: var(--accent); margin-top: 3px; flex-shrink: 0; }
+
+    @media print {
+      .navbar, .resume-print-note { display: none !important; }
+      .resume-wrap { box-shadow: none; margin: 0; }
+      body { background: #fff; }
+    }
+
+    @media (max-width: 600px) {
+      .resume-header { padding: 2rem 1.5rem; }
+      .resume-body { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Audrey Bledsoe</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon" style="filter:invert(1);"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto gap-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="resume.html">Résumé</a></li>
+        <li class="nav-item"><a class="nav-link" href="travel.html">Travel</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-5">
+  <div class="resume-wrap">
+
+    <!-- HEADER -->
+    <div class="resume-header">
+      <h1>Audrey Bledsoe</h1>
+      <p class="tagline">Pre-Business · Finance · Brigham Young University</p>
+      <div class="contact-row">
+        <div class="contact-item"><i class="bi bi-envelope"></i> abledso0@byu.edu</div>
+        <div class="contact-item"><i class="bi bi-telephone"></i> (801) 675-7371</div>
+        <div class="contact-item"><i class="bi bi-geo-alt"></i> Prosper, TX</div>
+        <div class="contact-item"><i class="bi bi-linkedin"></i> linkedin.com/in/audrey-bledsoe</div>
+      </div>
+    </div>
+
+    <div class="resume-body">
+
+      <!-- EDUCATION -->
+      <div class="section-head"><div class="dot"></div><h2>Education</h2></div>
+      <div class="entry">
+        <div class="edu-row">
+          <div>
+            <div class="edu-school">Brigham Young University</div>
+            <div class="edu-degree">Pre-Business Major · Provo, UT</div>
+          </div>
+          <div class="entry-date">June 2024 – Present</div>
+        </div>
+        <ul class="edu-bullets mt-2">
+          <li>GPA: 3.92 / 4.00</li>
+          <li>Full Tuition Scholarship &amp; Merit-Based Academic Scholarship</li>
+          <li>Finance Society · Women in Finance · Private Banking &amp; Wealth Management Association · BYU Real Estate Association · Investment Banking Association</li>
+        </ul>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="section-head"><div class="dot"></div><h2>Experience</h2></div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Intern</h3>
+          <span class="entry-date">Apr 2026 – May 2026</span>
+        </div>
+        <div class="entry-org">Timpanogos Legal Center (Nonprofit) · Orem, UT</div>
+        <ul>
+          <li>Executed CLE program connecting Utah County legal professionals with events required for annual license renewal</li>
+          <li>Organized and coordinated sponsorship agreements for the nonprofit's CLE professional event</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Mentee</h3>
+          <span class="entry-date">Aug 2023 – May 2025</span>
+        </div>
+        <div class="entry-org">McCathern Law / Denton Court House · Dallas, TX</div>
+        <ul>
+          <li>Observed courtroom procedures and attorney-client interactions by shadowing practicing lawyers and sitting judges over two years</li>
+          <li>Cultivated professional etiquette, confidentiality protocols, and analytical thinking within high-stakes, fast-paced legal environments</li>
+          <li>Received direct mentorship from the Dallas Cowboys' Family Attorney and the presiding 367th District Court Judge of Denton, TX</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Event Coordinator</h3>
+          <span class="entry-date">Nov 2023 – Dec 2024</span>
+        </div>
+        <div class="entry-org">Toyota Headquarters (Fortune 500) · Frisco, TX</div>
+        <ul>
+          <li>Collaborated with Toyota executives to plan, coordinate, and execute professional networking events for local high school students</li>
+          <li>Developed expertise in corporate communication, executive relationship management, and large-scale event logistics</li>
+          <li>Brokered lasting professional connections between high school students and senior industry leaders across the Dallas–Fort Worth area</li>
+        </ul>
+      </div>
+
+      <!-- LEADERSHIP -->
+      <div class="section-head"><div class="dot"></div><h2>Leadership &amp; Service</h2></div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Committee Chairperson</h3>
+          <span class="entry-date">Sep 2023 – May 2025</span>
+        </div>
+        <div class="entry-org">Walnut Grove Executive Student Council · Dallas, TX</div>
+        <ul>
+          <li>Led cross-functional student committees in planning and executing high-impact school-wide events and community programs</li>
+          <li>Spearheaded annual fundraising campaigns generating over $5,000 each year in charitable contributions</li>
+          <li>Partnered with school administrators to develop strategies driving measurable gains in student engagement</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Principal Dancer &amp; Captain</h3>
+          <span class="entry-date">Sep 2018 – May 2025</span>
+        </div>
+        <div class="entry-org">Dallas Repertoire Ballet · Dallas, TX</div>
+        <ul>
+          <li>Trained 20 hours per week for seven years, performing lead roles in multiple ballet productions</li>
+          <li>Demonstrated exceptional discipline, time management, and team leadership over seven years of intensive pre-professional training</li>
+        </ul>
+      </div>
+
+      <!-- AWARDS & SKILLS -->
+      <div class="section-head"><div class="dot"></div><h2>Awards &amp; Honors</h2></div>
+      <ul class="awards-list">
+        <li><i class="bi bi-star-fill"></i> BYU Full Tuition Scholarship &amp; Merit-Based Academic Scholarship</li>
+        <li><i class="bi bi-star-fill"></i> Prosper Education Foundation Scholarship Recipient (May 2025)</li>
+        <li><i class="bi bi-star-fill"></i> Selected Member, AURA Contemporary Dance Company</li>
+        <li><i class="bi bi-star-fill"></i> Upcoming: Net-Trek in New York City — Investment Banking firm visits</li>
+      </ul>
+
+      <div class="section-head"><div class="dot"></div><h2>Skills &amp; Interests</h2></div>
+      <div class="skills-grid">
+        <span class="skill-tag red">Investment Banking</span>
+        <span class="skill-tag red">Financial Analysis</span>
+        <span class="skill-tag red">Corporate Communication</span>
+        <span class="skill-tag">Executive Relationship Management</span>
+        <span class="skill-tag">Event Logistics &amp; Coordination</span>
+        <span class="skill-tag">Legal Research</span>
+        <span class="skill-tag">Analytical Thinking</span>
+        <span class="skill-tag">Team Leadership</span>
+        <span class="skill-tag">Fundraising</span>
+        <span class="skill-tag">Classical Ballet</span>
+        <span class="skill-tag">Golf</span>
+        <span class="skill-tag">Hiking</span>
+      </div>
+
+    </div>
+  </div>
+  <p class="text-center text-muted mt-3" style="font-size:0.8rem;">
+    <i class="bi bi-printer"></i> Use your browser's print function to save as PDF
+  </p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

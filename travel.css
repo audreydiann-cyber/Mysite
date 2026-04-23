@@ -1,0 +1,377 @@
+/* travel.css — Audrey Bledsoe's Travel Page Stylesheet */
+
+/* ============ RESET & BASE ============ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: #faf9f6;
+  color: #2c2c2c;
+  line-height: 1.7;
+}
+
+/* ============ NAV ============ */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(20, 20, 20, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: #e8d5b0;
+  text-decoration: none;
+  letter-spacing: 3px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #e8d5b0;
+}
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.65) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 700px;
+}
+
+.hero-sub {
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #e8d5b0;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 10vw, 7rem);
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: #e8d5b0;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+.cta-btn {
+  display: inline-block;
+  border: 1px solid #e8d5b0;
+  color: #e8d5b0;
+  padding: 0.85rem 2.5rem;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.cta-btn:hover {
+  background: #e8d5b0;
+  color: #111;
+}
+
+/* ============ SECTIONS ============ */
+.section {
+  padding: 100px 0;
+}
+
+.alt-bg {
+  background-color: #f0ede6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #b08d57;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  color: #1a1a1a;
+  margin-bottom: 2.5rem;
+  line-height: 1.15;
+}
+
+.body-text {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.9;
+  max-width: 680px;
+  margin-bottom: 1rem;
+}
+
+.center-text {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============ DESTINATION CARDS ============ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.dest-card {
+  background: #fff;
+  border: 1px solid #e5e0d5;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.dest-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+.card-img {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-region {
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #b08d57;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.card-body h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: #1a1a1a;
+  margin-bottom: 0.6rem;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* ============ TWO COLUMN ============ */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .two-col { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ============ NESTED LISTS ============ */
+.main-list {
+  padding-left: 1.2rem;
+  color: #2c2c2c;
+}
+
+.main-list > li {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.main-list > li strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.sub-list {
+  list-style: disc;
+  padding-left: 1.3rem;
+  margin-top: 0.4rem;
+}
+
+.sub-list li {
+  font-size: 0.88rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+  line-height: 1.6;
+}
+
+/* ============ TIPS ============ */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.tip-card {
+  border-top: 2px solid #b08d57;
+  padding-top: 1.25rem;
+}
+
+.tip-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  color: #e0d5c0;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.tip-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: #1a1a1a;
+  margin-bottom: 0.6rem;
+}
+
+.tip-card p {
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.75;
+}
+
+/* ============ VIDEO ============ */
+.video-wrap {
+  position: relative;
+  max-width: 800px;
+  margin: 2rem auto 0;
+  aspect-ratio: 16/9;
+}
+
+.video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ============ TABLEAU ============ */
+.tableau-wrap {
+  max-width: 900px;
+  margin: 2rem auto 0;
+  border: 1px solid #e0ddd5;
+  background: #fff;
+}
+
+/* ============ BACK TO TOP ============ */
+.back-to-top-wrap {
+  text-align: center;
+  padding: 2rem;
+  background-color: #faf9f6;
+}
+
+.back-to-top {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #b08d57;
+  text-decoration: none;
+  border-bottom: 1px solid #b08d57;
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+
+.back-to-top:hover {
+  color: #8a6c3a;
+}
+
+/* ============ FOOTER ============ */
+.site-footer {
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+}
+
+.site-footer a {
+  color: #e8d5b0;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
